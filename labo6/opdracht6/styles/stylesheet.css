@@ -1,0 +1,9 @@
+.checklist{
+    list-style-type: none;
+}
+.checklist li{
+    list-style-image: url(../images/check-box-empty.png);
+}
+.checklist .checked{
+    list-style-image: url(../images/check-box.png);
+}
