@@ -1,0 +1,205 @@
+body{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+}
+
+header h1{
+    margin: 10px auto;
+    padding: 20px;
+    color: rgb(230, 230, 230);
+    text-align: center;
+    text-decoration-line: underline;
+    font-size: 2em;
+    border: 1px solid lightblue;
+    border-radius: 25px;
+    background-color: rgb(0,0,204);
+}
+
+.personal, .hobbies, .movies, .music{
+    display: inline-block;
+    height: 250px;
+    width: 46%;
+    margin: 10px auto;
+    border: 1px solid lightblue;
+    border-radius: 25px;
+    background-color: rgb(77,77,255);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.hobbies, .movies{
+    float: right;
+}
+
+.music ul, .movies ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.music ul li, .movies ul li{
+    text-align: center;
+    float: left;
+    margin: 0 5px;
+
+}
+
+.hobbies ul li a{
+    color: black;
+}
+
+h2 {
+    text-decoration-line: underline;
+    margin-block: 0.25em;
+}
+
+.personalpicture{
+    float: right;
+    width: 150px;
+}
+
+
+
+/* prognose tabel */
+
+.prognose{
+    margin: 10px auto;
+    display: inline-block;
+    border: 1px solid lightblue;
+    border-radius: 25px;
+    background-color: rgb(77,77,255);
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+table, th, td{
+    border: 1px solid black;
+}
+th, td{
+    padding: 5px 10px;
+}
+th{
+    text-align: center;
+}
+
+
+/* tabel vrienden */
+
+
+.vrienden table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.vrienden {
+    margin-top: 20px;
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid #36752D;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.vrienden table td, .vrienden table th {
+    padding: 5px 5px;
+}
+
+.vrienden table thead th {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #36752D), color-stop(1, #275420));
+    background: -moz-linear-gradient(center top, #36752D 5%, #275420 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#36752D', endColorstr='#275420');
+    background-color: #36752D;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    border-left: 1px solid #36752D;
+}
+
+.vrienden table thead th:first-child {
+    border: none;
+}
+
+.vrienden table tbody td {
+    color: #275420;
+    border-left: 1px solid #36752D;
+    font-size: 12px;
+    border-bottom: 1px solid #36752D;
+    font-weight: normal;
+}
+
+.vrienden table tbody .alt td {
+    background: #DFFFDE;
+    color: #275420;
+}
+
+.vrienden table tbody td:first-child {
+    border-left: none;
+}
+
+.vrienden table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.vrienden table tfoot td div {
+    border-top: 1px solid #36752D;
+    background: #FFFFFF;
+}
+
+.vrienden table tfoot td {
+    padding: 0;
+    font-size: 16px
+}
+
+.vrienden table tfoot td div {
+    padding: 2px;
+}
+
+.vrienden table tfoot td ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+.vrienden table tfoot li {
+    display: inline;
+}
+
+.vrienden table tfoot li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 1px;
+    color: #FFFFFF;
+    border: 1px solid #36752D;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #36752D), color-stop(1, #275420));
+    background: -moz-linear-gradient(center top, #36752D 5%, #275420 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#36752D', endColorstr='#275420');
+    background-color: #36752D;
+}
+
+.vrienden table tfoot ul.active, .vrienden2 table tfoot ul a:hover {
+    text-decoration: none;
+    border-color: #275420;
+    color: #FFFFFF;
+    background: none;
+    background-color: #36752D;
+}
+.vrienden table tbody tr td.onbekend{
+    background-color: red;
+}
+

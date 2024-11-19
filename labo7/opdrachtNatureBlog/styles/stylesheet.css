@@ -1,0 +1,42 @@
+body{
+    width: 95%;
+    margin:auto;
+}
+
+section > header  h1{
+    color: white;
+    margin:auto;
+}
+
+section > header {
+    height: 5em;
+    background-image: url(../images/header.jpg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+section > nav{
+    background-color: #3b3b3b;
+}
+section > nav a{
+    font-size: 0.85em;
+    color: lightgreen;
+    text-decoration: none;
+}
+section > article{
+    background-color: lightgray;
+    padding: 5px;
+    margin: 5px;
+}
+section > article  h1{
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin: 0.2em 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+footer{
+    margin-bottom: 16px;
+}

@@ -1,0 +1,30 @@
+table{
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 2px;
+    border: 1px dotted blue;
+    border-collapse: collapse;
+}
+
+
+td:first-child, td:last-child {
+    background-color: rgb(255, 220, 220);
+}
+
+tr:first-child{
+    background-color: rgb(170, 170, 200);
+}
+
+tr:nth-child(2) td{
+    color: rgb(200, 190, 240);
+    background-color: rgb(35, 37, 70);
+}
+.vrijeDag{
+    background-color: rgb(250, 120, 120);
+}
+td.andereMaand{
+    color: grey;
+    background-color: lightgray;
+}
