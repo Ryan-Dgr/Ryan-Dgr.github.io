@@ -1,0 +1,114 @@
+body{
+    width: 95%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    position: relative;
+    background-image: url("../images/bgsky3.jpg");
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header p{
+    margin-top: 0;
+    text-align: center;
+    color: darkblue;
+}
+header p:first-child{
+    font-size: 300%;
+    font-weight: bold;
+    font-style: italic;
+}
+header p:nth-child(2){
+    font-size: 240%;
+    font-weight: bold;
+}
+header img{
+    position: absolute;
+    right: 250px;
+    bottom: 60px;
+}
+
+.news{
+    width: 25%;
+    float: right;
+    background-color: #dddddd;
+    border: 1px solid #999999;
+    box-sizing: border-box;
+}
+.news h3{
+    color: white;
+    background-color: blue;
+    text-align: center;
+    font-size: 120%;
+}
+.news p{
+    color: #666666;
+    font-size: 90%;
+    padding: 0 10px;
+}
+
+main{
+    width: 75%;
+    float: left;
+}
+
+.introduction{
+    overflow: hidden;
+    text-align: justify;
+}
+.introduction p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+.introduction span{
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
+}
+.logo{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+
+}
+
+.gallery{
+    background-color: #999999;
+}
+
+.foto{
+    display: inline-block;
+    border: 1px dotted #999999;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.foto img{
+    height: 180px;
+    width: 180px;
+}
+footer{
+    background-color: #666666;
+    clear: both;
+    color: white;
+    line-height: 2em;
+}
+footer section{
+    display: inline-block;
+    margin-left: 120px;
+}
+footer section a:hover{
+    color: red;
+}
+
+footer div{
+    color: black;
+    background-color: white;
+    clear: both;
+    text-align: center;
+}
