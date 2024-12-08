@@ -1,0 +1,36 @@
+body{
+    background-color: whitesmoke;
+    color: rgb(230, 230, 230);
+}
+header h1{
+    margin: 10px auto;
+    padding: 20px;
+    color: rgb(230, 230, 230);
+    text-align: center;
+    text-decoration-line: underline;
+    font-size: 2em;
+    border: 1px solid lightblue;
+    border-radius: 25px;
+    background-color: rgb(0,0,204);
+}
+.rond{
+    border: 1px solid lightblue;
+    border-radius: 25px;
+}
+.music ul, .movies ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.hobbies ul li a{
+    color: rgb(230, 230, 230);
+}
+.prognose, .vrienden{
+    color: black;
+}
+
+
+
+
+
+
