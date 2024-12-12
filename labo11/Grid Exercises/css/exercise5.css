@@ -1,5 +1,9 @@
 .container{
-
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
 }
 
 .container .block{
@@ -11,26 +15,34 @@
 }
 
 .block.block1{
-
+    grid-area: 1/ 1 / 2/ 4;
+    background-color: red;
  }
 .block.block2{
-
+    grid-area: 2/ 1 / 4 /  2;
+    background-color: rebeccapurple;
 }
 .block.block3{
-
+    grid-area: 2/ 2 / 3 /  3;
+    background-color: cornflowerblue;
 }
 .block.block4{
-
+    grid-area: 2/ 3 / 3 /4 ;
+    background-color: green;
 }
 .block.block5{
-
+    grid-area: 3/ 2/ 4 / 4;
+    background-color: pink;
 }
 .block.block6{
-
+    grid-area:  4/ 1 / 5 / 3 ;
+    background-color: red;
 }
 .block.block7{
-
+    grid-area: 4/ 3 /  5 / 4;
+    background-color: rebeccapurple;
 }
 .block.block8{
-
+    grid-area: 5/ 1/ 6/4;
+    background-color: cornflowerblue;
 }

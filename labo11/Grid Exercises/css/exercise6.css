@@ -1,2 +1,77 @@
+main{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+main .block{
+    padding:20px;
+    font-size: 3em;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.block.block1{
+    background-color: indianred;
+}
+.block.block2{
+    background-color: mediumpurple;
+}
+.block.block3{
+    background-color: cornflowerblue;
+}
+.block.block4{
+    background-color: darkseagreen;
+}
+
+@media screen and (min-width: 320px){
+    .block.block1{
+        grid-area: 2/ 1 / 3 / 4 ;
+    }
+    .block.block2{
+        grid-area: 1/1/2/4;
+
+    }
+    .block.block3{
+        grid-area: 3/  1/4/ 4;
+    }
+    .block.block4{
+        grid-area: 4/ 1 / 5 / 4 ;
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .block.block1{
+        grid-area: 1/1/2/4;
+    }
+    .block.block2{
+        grid-area: 3/ 1 / 4 / 4 ;
+    }
+    .block.block3{
+        grid-area: 2/  1/3/ 4;
+    }
+    .block.block4{
+        grid-area: 4/ 1 / 5 / 4 ;
+    }
+}
+
+
+@media screen and (min-width: 992px){
+    .block.block1{
+        grid-area: 1/1/2/4;
+    }
+    .block.block2{
+        grid-area: 2/  1/3/ 4;
+    }
+    .block.block3{
+        grid-area: 3/ 1 / 4 / 2 ;
+    }
+    .block.block4{
+        grid-area: 3/ 2 / 4 / 4 ;
+    }
+}
 
 
