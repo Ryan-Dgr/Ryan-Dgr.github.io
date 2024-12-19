@@ -1,10 +1,59 @@
-html {
+html{
     background-color: #333;
     font-family: helvetica;
 }
-
 * {
     padding: 10px;
 }
+body{
+    margin: 5px;
+    background-color: white;
+}
+main{
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+section{
+    margin: 5px;
+    background-color: white;
+}
+section a{
+    border: 1px solid #ccc;
+}
+nav{
+    background-color: #ccc;
+    padding: 5px 2px;
+    display: flex;
+    justify-content: center;
+}
+nav a {
+    margin: 0 5px;
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #ddaa00;
+    text-decoration: none;
+    text-align: center;
+}
+h1{
+    margin: 0;
+}
 
+header, footer{
+    background-color: #ddaa00;
+}
+header a, footer a{
+    color: #ddaa00;
+}
 
+img{
+    padding: 0;
+}
+
+@media screen and (min-width:700px){
+    main{
+        flex-wrap: nowrap;
+    }
+}
