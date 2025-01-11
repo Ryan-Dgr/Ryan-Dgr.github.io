@@ -1,0 +1,126 @@
+/** Volgende CSS gaan we ze geven **/
+.respimg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'helvetica', sans-serif;
+}
+h1{
+    font-size: 2.5em;
+    border-bottom: 2px solid black;
+}
+h2{
+    font-size: 150%;
+}
+body > header{
+    border-bottom: 2px solid #ebe8e8;
+    align-content: center;
+}
+nav{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 900px;
+}
+
+nav a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #ebe8e8;
+    text-decoration: none;
+    color: #5b4746;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+}
+nav a:hover{
+    border-bottom: 2px solid #fff100;
+}
+main > header{
+    width: 100%;
+    background-image: url("./images/headerimage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    display: table;
+}
+main > header > h1{
+    color: white;
+    border: none;
+    text-align: center;
+    font-weight: normal;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 40px;
+    text-shadow: #8D99AE 2px 2px 2px;
+}
+#recipes{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+#mainrecipe{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px;
+}
+#mainrecipe > article{
+    margin-right: 1.5em;
+    padding-top: 1em;
+    border-top: 1px solid #ddd;
+}
+#mainrecipe > article h3{
+    color: #ff4d56;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+#mainrecipe > article h2 a{
+    text-decoration: none;
+    color: black
+}
+#mainrecipe > article .recipe-body{
+    color: #666666;
+    line-height: 2em;
+}
+#mainrecipe > article .recipe-auteur{
+    padding-right: 10px;
+    border-right: 1px solid #ebe8e8;
+    font-style: italic;
+    display: inline;
+}
+#mainrecipe > article span{
+    color: #666666;
+    padding-left: 10px;
+}
+.container img{
+    margin-bottom: 25px;
+}
+footer{
+    width: 100%;
+    border-top: 1px solid #ebe8e8;
+}
+#left{
+    padding: 20px;
+    width: 50%;
+    text-align: right;
+    float: left;
+}
+#right{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    float: right;
+    width: 50%;
+}
+
