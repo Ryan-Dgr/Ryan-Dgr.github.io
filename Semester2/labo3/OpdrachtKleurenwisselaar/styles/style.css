@@ -1,0 +1,13 @@
+button {
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    margin: 20px;
+    height: 50px;
+    width: 200px;
+    line-height: 50px;
+}
+
+.blauw{
+    background-color: blue;
+}
