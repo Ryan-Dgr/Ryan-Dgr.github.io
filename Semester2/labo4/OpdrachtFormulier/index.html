@@ -9,8 +9,8 @@
 <form>
   <fieldset>
     <legend>Personal Information</legend>
-    <label for="firstname">First name: </label>
-    <input type="text" id="firstname" name="firstname"><br>
+    <label for="firstname" >First name: </label>
+    <input type="text" id="firstname" name="firstname" autofocus ><br>
     <label for="lastname">Last name: </label>
     <input type="text" id="lastname" name="lastname"><br>
   </fieldset>
@@ -60,7 +60,7 @@
     <label for="born">When were you born?</label>
     <input type="date" id="born" name="born"><br>
     <label for="zip">Belgium zip-code reg number: </label>
-    <input type="number" id="zip" name="zip" placeholder="9999"><br>
+    <input type="number" id="zip" name="zip" pattern="[1-9][0-9]{3}" placeholder="9999"><br>
   </fieldset>
   <fieldset>
     <legend>Miscellaneous</legend>
