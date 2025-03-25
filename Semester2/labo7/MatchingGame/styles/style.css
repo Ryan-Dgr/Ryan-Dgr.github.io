@@ -1,0 +1,31 @@
+#speelveld{
+    border: 5px solid black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 650px;
+    height: 650px;
+    margin: auto;
+
+}
+
+#btnPlay{
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+
+}
+
+.divKaart{
+    margin: 5px auto;
+    border: 1px solid black;
+    height: 200px;
+    width: 150px;
+}
+.imgKaart{
+    height: 200px;
+    width: 150px;
+}
