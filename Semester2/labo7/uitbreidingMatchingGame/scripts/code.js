@@ -2,11 +2,19 @@ let global = {
     AANTAL_HORIZONTAAL: 4,
     AANTAL_VERTICAAL: 3,
     AANTAL_KAARTEN: 6,
-    AANTAL_GELIJKE_KAARTEN: 3
+    AANTAL_GELIJKE_KAARTEN: 6
 }
 let locked = false;
 
 const setup = () => {
+
+    let atl = prompt("hoeveel gelijke kaarten? (2/3/4)");
+    while (![2, 3, 4].includes(Number(atl))) {
+        atl = prompt("Hoeveel gelijke kaarten? (2/3/4)");
+    }
+
+    atl = Number(atl);
+    global.AANTAL_GELIJKE_KAARTEN = atl;
 
     document.body.innerHTML = `
         <button id="btnPlay">Play</button>
@@ -26,6 +34,12 @@ const setup = () => {
 
     let btnPlay = document.getElementById("btnPlay");
     btnPlay.addEventListener("click", startGame)
+    replayBtn();
+}
+
+const playSound = () => {
+    let sound = new Audio("sounds/KaartOmdraaien.mp3");
+    sound.play();
 }
 
 const startGame = () => {
@@ -49,17 +63,21 @@ const startGame = () => {
         kaarten[i].addEventListener("click", clicked);
     }
 };
+
 const clicked = (event) => {
     if (locked) return;
     let kaart = event.target;
     if (kaart.classList.contains("omgedraaid")) return;
 
+
     let omgedraaideKaarten = document.getElementsByClassName("omgedraaid");
+    playSound();
+    // als je nog kaarten moet omdraaien
     if (omgedraaideKaarten.length !== global.AANTAL_GELIJKE_KAARTEN - 1) {
 
         kaart.classList.add("omgedraaid");
         kaart.setAttribute("src", kaart.getAttribute("data-src"));
-
+        // als atl kaarten gelijk is aan gelijke kaarten
     } else if (omgedraaideKaarten.length === global.AANTAL_GELIJKE_KAARTEN - 1) {
         kaart.classList.add("omgedraaid");
         kaart.setAttribute("src", kaart.getAttribute("data-src"));
@@ -72,6 +90,7 @@ const clicked = (event) => {
                 zelfde = false;
             }
         }
+        // controleren of ze allemaal hetzelfde zijn
         if (zelfde) {
             for (let i = 0; i < omgedraaideKaarten.length; i++) {
                 omgedraaideKaarten[i].parentElement.classList.add("juist");
@@ -80,13 +99,21 @@ const clicked = (event) => {
                 for (let i = 0; i < omgedraaideKaarten.length; i++) {
                     omgedraaideKaarten[i].parentElement.classList.remove("juist");
                 }
-                for (let i = 0; i < omgedraaideKaarten.length; i++) {
+                let omgedraaideKaartenArray = Array.from(omgedraaideKaarten);
+                omgedraaideKaartenArray.forEach((kaart) => {
+                    kaart.parentNode.removeChild(kaart);
+                });
+
+
+               /* for (let i = 0; i < omgedraaideKaarten.length; i++) {
                     omgedraaideKaarten[i].parentNode.removeChild(omgedraaideKaarten[i]);
                 }
                 //tweede gaat niet weg zonder dit??
-                omgedraaideKaarten[0].parentNode.removeChild(omgedraaideKaarten[0]);
+                omgedraaideKaarten[0].parentNode.removeChild(omgedraaideKaarten[0]);*/
+
                 locked = false;
             }, 1000);
+            // als ze niet gelijk zijn
         } else {
             locked = true;
             for (let i = 0; i < omgedraaideKaarten.length; i++) {
@@ -99,34 +126,40 @@ const clicked = (event) => {
                 for (let i = 0; i < omgedraaideKaarten.length; i++) {
                     omgedraaideKaarten[i].setAttribute("src", "images/kaartAchterkant.jpg");
                 }
-                for (let i = 0; i < omgedraaideKaarten.length; i++) {
+
+                let omgedraaideKaartenArray = Array.from(omgedraaideKaarten);
+                omgedraaideKaartenArray.forEach((kaart) => {
+                    kaart.classList.remove("omgedraaid");
+                });
+
+
+                /*for (let i = 0; i < omgedraaideKaarten.length; i++) {
                     omgedraaideKaarten[i].classList.remove("omgedraaid");
                 }
-                omgedraaideKaarten[0].classList.remove("omgedraaid");
+                omgedraaideKaarten[0].classList.remove("omgedraaid");*/
                 locked = false;
             }, 1000);
         }
     }
 
-
+}
 const replayBtn = () => {
-            let btnReplay = document.createElement("button");
-            btnReplay.innerText = "Replay";
-            document.getElementsByTagName("body")[0].appendChild(btnReplay);
-            btnReplay.addEventListener("click", () => {
-                let alles = Array.from(document.body.children);
-                alles.forEach((element) => {
-                    element.parentNode.removeChild(element);
-                });
-let iets = "";
-                let script = document.createElement("script");
-                script.src = "scripts/code.js";
-                script.type = "text/javascript";
-                document.body.appendChild(script);
+    let btnReplay = document.createElement("button");
+    btnReplay.innerText = "Replay";
+    btnReplay.setAttribute("id", "btnReplay");
+    document.getElementsByTagName("body")[0].appendChild(btnReplay);
+    btnReplay.addEventListener("click", () => {
+        let alles = Array.from(document.body.children);
+        alles.forEach((element) => {
+            element.parentNode.removeChild(element);
+        });
+        let iets = "";
+        let script = document.createElement("script");
+        script.src = "scripts/code.js";
+        script.type = "text/javascript";
+        document.body.appendChild(script);
 
-                setup();
-            });
-        }
-
+        setup();
+    });
 }
 window.addEventListener("load", setup);
