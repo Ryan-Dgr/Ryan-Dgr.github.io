@@ -6,7 +6,7 @@ const setup = () => {
     console.log(start.getMonth()+1);
     console.log(start.getFullYear());
 
-    let datum = new Date(2005, 6, 7);
+    let datum = new Date(2005, 5, 7);
 
     console.log(datum);
 

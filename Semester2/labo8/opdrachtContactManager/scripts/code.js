@@ -1,39 +1,94 @@
-let personen = [];
+let personen = [
+    {
+        voornaam: "Jan",
+        naam: "Janssens",
+        geboortedatum: "1985-03-12",
+        email: "jan.janssens@example.com",
+        aantalKinderen: 2
+    },
+    {
+        voornaam: "Lisa",
+        naam: "Peeters",
+        geboortedatum: "1992-07-25",
+        email: "lisa.peeters@example.com",
+        aantalKinderen: 0
+    },
+    {
+        voornaam: "Tom",
+        naam: "Vermeulen",
+        geboortedatum: "1978-11-05",
+        email: "tom.vermeulen@example.com",
+        aantalKinderen: 3
+    }
+];
 
-// Event listener (btnBewaar click)
-// Bewaar de wijzigingen die in de user interface werden aangebracht
+let index = -1;
+
+
 const bewaarBewerktePersoon = () => {
-    console.log("Klik op de knop bewaar");
+    if(!valideer()){
+        console.log("validatie niet goed");
+        return;
+    }
+    let lijst = document.getElementById("lstPersonen");
 
-    // valideer alle input data en controleer of er geen errors meer zijn
-    valideer();
+    let persoon = {
+        voornaam: document.getElementById("txtVoornaam").value,
+        naam: document.getElementById("txtFamilienaam").value,
+        geboortedatum: document.getElementById("txtGeboorteDatum").value,
+        email: document.getElementById("txtEmail").value,
+        aantalKinderen: document.getElementById("txtAantalKinderen").value,
+    }
+
+    // als het een nieuwe persoon is
+    if(index === -1){
+        console.log("index: " + index + " dus nieuwe persoon");
+        let option = document.createElement("option");
+        option.value = personen.length.toString();
+        option.textContent = persoon.voornaam + " " + persoon.naam;
+        lijst.appendChild(option);
+        personen.push(persoon);
+        index = personen.length -1;
+
+        // als persoon al bestaat gewoon bewerken
+    }else{
+        console.log("index: " + index + " dus bestaand persoon");
+        personen[index] = persoon;
+        lijst.options[index].textContent = persoon.voornaam + " " + persoon.naam;
+    }
 
 
-
-    // indien ok, bewaar de ingegeven data.
-        // een nieuw aangemaakte persoon voegen we toe
-        // een bestaande persoon in de lijst passen we aan
-
-    // zorg ervoor dat de naam en voornaam ook aangepast en/of zichtbaar zijn in de lijst na updaten
 };
 
-// Event listener (btnNieuw click)
 const bewerkNieuwePersoon = () => {
-    console.log("Klik op de knop nieuw");
     let inputElem = document.querySelectorAll("input[type=text]");
 
     inputElem.forEach((elem) => {
         elem.value = "";
     })
-    // Zet de user interface klaar om de gegevens van een nieuwe persoon in te voeren
+
+    document.getElementById("lstPersonen").selectedIndex = -1;
+
+    index = -1;
+
 };
 
 const bewerkGeselecteerdePersoon = () => {
+    clearAllErrors();
+    let option = document.getElementById("lstPersonen").value;
+    let pers = personen[option];
+    //index zetten op value van de geselecteerde persoon
+    index = option;
+
+    document.getElementById("txtVoornaam").value = pers.voornaam;
+    document.getElementById("txtFamilienaam").value = pers.naam;
+    document.getElementById("txtGeboorteDatum").value = pers.geboortedatum;
+    document.getElementById("txtEmail").value = pers.email;
+    document.getElementById("txtAantalKinderen").value = pers.aantalKinderen;
 
 }
 
 
-// onze setup functie die de event listeners registreert
 const setup = () => {
     let btnBewaar = document.getElementById("btnBewaar");
     btnBewaar.addEventListener("click", bewaarBewerktePersoon);
@@ -43,8 +98,16 @@ const setup = () => {
 
     let lstPersonen = document.getElementById("lstPersonen");
     lstPersonen.addEventListener("change", bewerkGeselecteerdePersoon);
-    // voeg een change listener toe aan lstPersonen. Bij het klikken op een option element in de lijst
-    // moet de data van die persoon getoond worden in het formulier
+
+    let lijst = document.getElementById("lstPersonen");
+
+    for(let i = 0; i < personen.length; i++) {
+        let option = document.createElement("option");
+        option.value = i.toString();
+        option.innerText = personen[i].voornaam + " " + personen[i].naam;
+        lijst.appendChild(option);
+    }
+
 };
 
 window.addEventListener("load", setup);
