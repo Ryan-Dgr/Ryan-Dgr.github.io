@@ -1,6 +1,7 @@
 const setup = () => {
     let btnGo = document.querySelector('#btnGo');
     btnGo.addEventListener('click', clicked);
+    restoreHistory();
 }
 
 const clicked = () =>{
@@ -9,23 +10,44 @@ const clicked = () =>{
     let search = input.substring(3);
     if(CommandIsValid(command)){
         if(command === "/g "){
-            createCardAndAppend("Google", search, "https://www.google.com/search?q=" + search);
-            window.open("https://www.google.com/search?q=" + search, "_blank");
+           getGoogle(search);
         }else if(command === "/y "){
-            createCardAndAppend("Youtube", search, "https://www.google.com/search?q=" + search);
-            window.open("https://www.youtube.com/results?search_query=" + search, "_blank");
+            getYoutube(search);
         }else if(command === "/x "){
-            createCardAndAppend("X", search, "https://www.google.com/search?q=" + search);
-            window.open("https://x.com/hashtag/" + search, "_blank");
+            getX(search);
         }else if(command === "/i "){
-            createCardAndAppend("Instagram", search, "https://www.google.com/search?q=" + search);
-            window.open("https://www.instagram.com/explore/tags/" + search, "_blank");
+           getInstagram(search);
         }else{
             alert("fout");
         }
     }else{
         alert("Invalid command");
     }
+}
+
+const getGoogle = (search) =>{
+    let url = "https://www.google.com/search?q=" + search;
+    createCardAndAppend("Google", search, url);
+    window.open(url, "_blank");
+    storeHistory();
+}
+const getYoutube = (search) =>{
+    let url = "https://www.youtube.com/results?search_query=" + search;
+    createCardAndAppend("Youtube", search, url);
+    window.open(url, "_blank");
+    storeHistory();
+}
+const getX = (search) =>{
+    let url = "https://x.com/hashtag/" + search;
+    createCardAndAppend("X", search, url);
+    window.open(url, "_blank");
+    storeHistory();
+}
+const getInstagram = (search) =>{
+    let url = "https://www.instagram.com/explore/tags/" + search;
+    createCardAndAppend("Instagram", search, url);
+    window.open(url, "_blank");
+    storeHistory();
 }
 
 const CommandIsValid = (command) =>{
@@ -51,6 +73,10 @@ const createLinkButton = (url) =>{
 }
 const createCardAndAppend = (title, commandoSuffix, url) =>{
     let col4 = createElementWithClassName("div", "col-4");
+    col4.classList.add("history-card");
+    col4.setAttribute("data-title", title);
+    col4.setAttribute("data-text", commandoSuffix);
+    col4.setAttribute("data-url", url);
     let card = createElementWithClassName("div", "card");
     card.classList.add(title.toLowerCase() + "-card");
     card.classList.add("bg-primary");
@@ -68,6 +94,30 @@ const createCardAndAppend = (title, commandoSuffix, url) =>{
     row.appendChild(col4);
 }
 
+const storeHistory = () =>{
+    let history = [];
+    let elHistory = document.querySelectorAll(".history-card");
+    elHistory.forEach((item) => {
+        history.push({
+            title: item.getAttribute("data-title"),
+            text: item.getAttribute("data-text"),
+            url: item.getAttribute("data-url")
+        })
+    })
+    console.log(history);
+    localStorage.setItem("history", JSON.stringify(history));
+}
 
+const restoreHistory =() =>{
+    let jsonText = localStorage.getItem("history");
+    console.log(jsonText);
+    if(jsonText !== null){
+        let history = JSON.parse(jsonText);
+        for(let i = 0; i < history.length; i++){
+            let item = history[i];
+            createCardAndAppend(item.title, item.text, item.url);
+        }
+    }
+}
 
 window.addEventListener("load", setup);
