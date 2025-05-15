@@ -3,8 +3,10 @@ tasks = [];
 const setup = () => {
     let btnSubmit = document.getElementById("btnSubmit");
     btnSubmit.addEventListener("click", voegTaakToe);
-    restoreTasks();
-    saveAndRender();
+
+    restoreTasks(); //alle taken uit localstorage in array steken
+    renderTasks(); //alle taken in array renderen
+
     document.querySelectorAll(".column").forEach(col => {
         col.addEventListener("dragover",  e => {
             e.preventDefault();
@@ -21,8 +23,7 @@ const setup = () => {
                     task.status = col.getAttribute("data-status");
                 }
             })
-            //restoreTasks();
-            //saveAndRender();
+            storeTasks(); // status updaten
         })
     })
 }
@@ -36,33 +37,17 @@ const voegTaakToe = () => {
         createdAt: new Date(),
         status:"todo"
     }
-    tasks.push(task);
-    storeTasks();
-    saveAndRender();
-
+    tasks.push(task); // nieuwe taak in array
+    storeTasks(); // localstorage updaten met nieuwe taak
+    renderTasks(); // alle taken terug renderen
 }
-const saveAndRender = () => {
+const renderTasks = () => {
     document.getElementById("todo").innerHTML = "<h3>To Do</h3>";
     document.getElementById("inprogress").innerHTML = "<h3>In Progress</h3>";
     document.getElementById("done").innerHTML = "<h3>Done</h3>";
     for(let i = 0; i< tasks.length; i++){
         let task = tasks.at(i);
         createTaak(task.title, task.description, task.status, task.createdAt);
-    }
-}
-
-const storeTasks = () =>{
-    localStorage.setItem("ToDo", JSON.stringify(tasks));
-}
-const restoreTasks = () =>{
-    let json = localStorage.getItem("ToDo");
-    tasks = [];
-    if(json !== null){
-        let taken = JSON.parse(json);
-        for(let i = 0; i < taken.length; i++){
-            tasks.push(taken[i]);
-        }
-
     }
 }
 
@@ -85,7 +70,6 @@ const createTaak = (title, description, status, createdAt) =>{
     let tijd = document.createElement("p");
     tijd.appendChild(document.createTextNode(new Date(createdAt).toLocaleDateString()));
 
-
     div.appendChild(h2);
     div.appendChild(p);
     div.appendChild(tijd);
@@ -93,4 +77,20 @@ const createTaak = (title, description, status, createdAt) =>{
     document.getElementById(status).appendChild(div);
 
 }
+
+const storeTasks = () =>{
+    localStorage.setItem("ToDo", JSON.stringify(tasks));
+}
+
+const restoreTasks = () =>{
+    let json = localStorage.getItem("ToDo");
+    tasks = [];
+    if(json !== null){
+        let taken = JSON.parse(json);
+        for(let i = 0; i < taken.length; i++){
+            tasks.push(taken[i]);
+        }
+    }
+}
+
 window.addEventListener("load", setup);
